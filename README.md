@@ -146,10 +146,8 @@ Make sure to run ```pip install -r requirements.txt``` before you run!
 ## tester.py file (by Amani5576)
 
 This file loops through all intensity levels and outputs an image of the filtered data with respect to that level.
-
 NOTE: This should be run after Results.py
 
-<video width="320" height="240" controls>
-  <source src="NGC 3576 Temp expansion HA.mp4" type="video/mp4">
-Browser cannot support video.
-</video>
+Below is a video of the combination of the HA images with regards to the splitting of 100 levels.
+
+https://user-images.githubusercontent.com/110545729/191863900-962b7419-91b8-4892-81f2-70a971da8c4e.mp4
