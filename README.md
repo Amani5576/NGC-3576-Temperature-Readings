@@ -114,7 +114,8 @@ This file shows the initial ImageHDU matrix of each Fit file before any filtrati
 
         show(fitFiles[2])  or   show("SII.fits")
 
-## spectra.py file (by rofhima13)
+
+## Results.py file (by Amani5576)
 
 This file extracts the original image matrices, and filtered image matrices from the DataAnalysis module @Amani5576 constructed from the FIT files, and constructs a horizontal spectrum relative to the x-axis of the image, or from a viewer's point of view, and displays all of the resultant plots using all of the data.
 
@@ -141,3 +142,14 @@ Taking note of all the above information, looking at the filtered spectrum it's 
 The file can be run by running ```python ./spectra.py``` on any terminal emulator on a computer with Python 3 installed.
 
 Make sure to run ```pip install -r requirements.txt``` before you run!
+
+## tester.py file (by Amani5576)
+
+This file loops through all intensity levels and outputs an image of the filtered data with respect to that level.
+
+NOTE: This should be run after Results.py
+
+<video width="320" height="240" controls>
+  <source src="NGC 3576 Temp expansion HA.mp4" type="video/mp4">
+Browser cannot support video.
+</video>
