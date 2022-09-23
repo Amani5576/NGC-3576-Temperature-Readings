@@ -3,18 +3,17 @@
 # 4060924
 # DataAnalysis
 
-from FitsExtraction import HDUs, pixelNum  #importing HDU Data Sets from FIT files as well as copies of the Fit files
+from FitsExtraction import HDUs, corrector, pixelNum #importing HDU Data Sets from FIT files as well as copies of the Fit files
 import numpy as np #Importing numpy for useful array manipulation.
 from statistics import median, multimode, stdev
 import sys 
+
 """
 Converting PrimaryHDU's into numpy arrays by firstly extracting them from 
 FitsEctract.py package
 """
 arrs = [] #Storing numpy matrix of ImageHDU of HA, OIII and SII respetively.
 names = ["Hydrogen Alpha", "Oxygen III", "Silicon II"]
-
-
 
 for x in range(len(HDUs)):
     #HDUs[x][0] means the Primary HDU whilst HDUs[x][1] would have been ImageHDU
@@ -26,14 +25,22 @@ for x in range(len(HDUs)):
     
 matrix_title = ["__________________HA array/matrix________________________", "__________________OIII array/matrix_________________________", "__________________SII array/matrix_________________________"]
 
-for x in range(len(arrs)): #Looping through length of arrs (starting from 0 to length-1)
-    print(matrix_title[x]) #Print the title matrix before printing the matrix data
-    print("")
-    print(arrs[x]) #Print the matrix 
-    print("")
+unfiltMTX = input("""
+Show unfiltered matrices of fit file images?
 
-print("Please note that 2D arrays are already matrices")
-print("")
+Y/N ?
+               
+""")
+if unfiltMTX == "Y":
+    for x in range(len(arrs)): #Looping through length of arrs (starting from 0 to length-1)
+        print(matrix_title[x]) #Print the title matrix before printing the matrix data
+        print("")
+        print(arrs[x]) #Print the matrix 
+        print("")
+elif unfiltMTX == "N":
+    pass
+else: 
+    corrector()
 
 minToMax_arr = []   #Matrix needed to store 1D data for checking Max and Min 
                     #photons in particular array
@@ -47,34 +54,46 @@ modes_arr = [] #storing Modal(s) value of HA, OIII and SII into array, RESPECTIV
 stDev_arr = [] #storing standard Deviation value of HA, OIII and SII into array, RESPECTIVELY
     
 #Statistical Data
+statDats = input("""
+Print statistical Data outputs of each fit file? 
+
+Y/N ?
+
+""")
+    
 for x in range(len(stat_titles)):
-    print(stat_titles[x]) #print the current stat title
-    print("")
     for i in arrs[x]: #Looping over each individual sub-araay list
         for j in i: #Looping through each element in specific sub-array list
             minToMax_arr.append(j) #Adding each element into 1D array 
     minToMax_arr.sort() #Sorts the array in ascending order
     maxim, minim = minToMax_arr[-1], minToMax_arr[0]
     up_q, low_q = np.percentile(arrs[x],75), np.percentile(arrs[x],25) #getting upper and lower quartile of each matrix data
-    print("Maximum photons in a pixel = ", maxim) #Max pixel value
-    print("Minimum photons in a pixel = ", minim) #Min Pixel value
-    print("Upper quartile = ", up_q) #Printing upper quartile info
-    print("Lower Quartile = ", low_q) #Printing lower quartile info
     med =  median(minToMax_arr)
-    print("Median = ", med) #Getting median value
     median_arr.append(med)
     mode = multimode(minToMax_arr)
-    print("Mode(s) = ", mode) #Getting modal value. Using multimode in case of two modes or more
     modes_arr.append(mode)
     mean = np.mean(arrs[x])
-    print("mean= %.3f " % mean)
     std = stdev(minToMax_arr, xbar = mean)
-    print("StDev = ", std) #Standard Deviation
     stDev_arr.append(std)
     max_vals.append(maxim)
     min_vals.append(minim)
     minToMax_arr.clear() #Clearing array of all content for OIII and SII data storing
-    print("")
+    if statDats == "Y":
+        print(stat_titles[x]) #print the current stat title
+        print("")
+        print("Maximum photons in a pixel = ", maxim) #Max pixel value
+        print("Minimum photons in a pixel = ", minim) #Min Pixel value
+        print("Upper quartile = ", up_q) #Printing upper quartile info
+        print("Lower Quartile = ", low_q) #Printing lower quartile info
+        print("Median = ", med) #Getting median value
+        print("Mode(s) = ", mode) #Getting modal value. Using multimode in case of two modes or more
+        print("mean= %.3f " % mean)
+        print("StDev = ", std) #Standard Deviation
+        print("")
+    elif statDats == "N":
+        pass
+    else: 
+        corrector()
     
 ###############################################################################
 """
@@ -90,41 +109,46 @@ By inputting the number of levels (starting from the highest level; Level 1),
 the data recorded will be categorized upto that level.
 """
 ###############################################################################
-#Creating user-input based Scale-Levels for relative intensity
-
 print("_______________________________________________________________________________________________")
+
+# Limitation based on Colour of an object in digital systems
+maxColor = 2**8-1 #0 -> 255
+
+#Creating user-input based Scale-Levels for relative intensity
 scF = int(input("""
                            
-What Integer Scaling Factor would you like to make in order to create Scale-Levels for relative intensity? 
+Please input the number of levels.
             
-Its advisable to choose a high number such as 40 or %d.
-Highest value to be chosen is %d due to a limitation of pixels.
-         
-                """ % (int(pixelNum/4),pixelNum)))
+Its advisable to choose a high number such as %d or higher.
+Highest value to be chosen is %d due to a limitation of 
+Colour of an object in digital systems.
+
+     
+""" % (int(maxColor/4),maxColor)))
 
 Levels = int(input("""
-                           
 Levels have been successfully constructed. 
-    
+
+Note: Highest intesity level = 1
+      Lowest intesity level = %d
+                                  
 Are you sure you want all the data to be processed and inputted till level %d?
-If so, then type %d again. (Note: highest intesity is of level 1)
-    
-Or
+If so, then type %d again. 
         
-Input the number of level intensities you desire. 
-Recommended to choose upto the top quarter tier such as %d or lower. .
-(Be Warned, it might take some time with regards to the processessing power of your machine)       
-      
-     
-                """ % (scF,scF,int(scF/4))))
+Input the number of level intensities you desire.
+(e.g. if you type 6, data will process from level 1 to 6)
+Recommended to choose upto the top quarter tier level such as level %d or lower. .
+(Warning: can take longer depending on processessing power of your device)     
+
+""" % (scF,scF,scF,int(scF/4))))
 
 print("_______________________________________________________________________________________________")
 print("")
 
-if scF > pixelNum: #If the chosen number of levels are bigger than the Scaling Factor:
+if scF > maxColor: #If the chosen number of levels are bigger than the Scaling Factor:
     print("""
           You have split the data into %d levels but the limitation (based on 2D pixel data) is %d in length/width. 
-          """ % (scF, pixelNum))
+          """ % (scF, maxColor))
 
     sys.exit("Please rerun the code an choose wisely.") #exiting the code with a message if the preceeding if statement is met
 
@@ -134,7 +158,7 @@ if Levels > scF: #If the chosen number of levels are bigger than the Scaling Fac
 
     sys.exit("Please rerun the code and choose wisely.") #exiting the code with a message if the preceeding if statement is met
          
-scales = [] #Array holding constructed scales for HA OIII and SII
+scales = [] #Array holding constructed scales for HA, OIII and SII
 
 for x in range(len(max_vals)):
     scales.append((max_vals[x] - min_vals[x])/scF)
