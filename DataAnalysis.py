@@ -3,7 +3,7 @@
 # 4060924
 # DataAnalysis
 
-from FitsExtraction import HDUs, corrector, pixelNum #importing HDU Data Sets from FIT files as well as copies of the Fit files
+from FitsExtraction import HDUs, corrector #importing HDU Data Sets from FIT files as well as copies of the Fit files
 import numpy as np #Importing numpy for useful array manipulation.
 from statistics import median, multimode, stdev
 import sys 
