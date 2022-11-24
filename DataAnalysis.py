@@ -13,7 +13,7 @@ Converting PrimaryHDU's into numpy arrays by firstly extracting them from
 FitsEctract.py package
 """
 arrs = [] #Storing numpy matrix of ImageHDU of HA, OIII and SII respetively.
-names = ["Hydrogen Alpha", "Oxygen III", "Silicon II"]
+names = ["Hydrogen Alpha", "Oxygen III", "Sulphur II"]
 
 for x in range(len(HDUs)):
     #HDUs[x][0] means the Primary HDU whilst HDUs[x][1] would have been ImageHDU
@@ -52,7 +52,9 @@ min_vals = [] #storing Minimum value of HA, OIII and SII into array, RESPECTIVEL
 median_arr = [] #storing Median value of HA, OIII and SII into array, RESPECTIVELY
 modes_arr = [] #storing Modal(s) value of HA, OIII and SII into array, RESPECTIVELY
 stDev_arr = [] #storing standard Deviation value of HA, OIII and SII into array, RESPECTIVELY
-    
+up_q_arr = []
+low_q_arr = []
+
 #Statistical Data
 statDats = input("""
 Print statistical Data outputs of each fit file? 
@@ -68,6 +70,7 @@ for x in range(len(stat_titles)):
     minToMax_arr.sort() #Sorts the array in ascending order
     maxim, minim = minToMax_arr[-1], minToMax_arr[0]
     up_q, low_q = np.percentile(arrs[x],75), np.percentile(arrs[x],25) #getting upper and lower quartile of each matrix data
+    up_q_arr.append(up_q) , low_q_arr.append(low_q)
     med =  median(minToMax_arr)
     median_arr.append(med)
     mode = multimode(minToMax_arr)

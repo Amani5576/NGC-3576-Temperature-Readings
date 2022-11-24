@@ -89,7 +89,7 @@ For the Oxygen III Filtered data:
 
 <img src="./img/TupleO3.jpeg">
     
-For the Silicon II Filtered data:
+For the Sulphur II Filtered data:
 
 <img src="./img/TupleS2.jpeg">
 
@@ -110,7 +110,7 @@ This file shows the initial ImageHDU matrix of each Fit file before any filtrati
 
         show(fitFiles[1])  or   show("OIII.fits")
     
-* For Silicon 2 matrix:
+* For Sulphur 2 matrix:
 
         show(fitFiles[2])  or   show("SII.fits")
 
