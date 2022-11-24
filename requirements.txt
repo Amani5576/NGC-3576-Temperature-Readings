@@ -1,0 +1,8 @@
+astropy.io
+numpy
+matplotlib
+statistics
+sys
+scipy
+tabulate
+math
