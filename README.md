@@ -127,6 +127,7 @@ File guides the user to choose between various options of displaying the data:
 -Special
 
 The "Special" choice allows the user to look at all different layers of a particular matrix. Each layer representing a matrix witht the same size as the original image but with regards to only one intenisty of Photons. (Which can correlate to temperature readings)
+
 Below is an image of the different layers for the Hydrogen Alpha that have significantly noticable differences.
 
 <img src="./img/Layers.png">
@@ -138,6 +139,6 @@ Below is a video of the combination of the HA images with regards to the splitti
 
 https://user-images.githubusercontent.com/110545729/191952049-509730ef-ef19-49ba-b836-2f67241194c0.mp4
 
-Manual code is needed for the superimposition of the dust data onto the stars data like so:
+Manual code is needed for the superimposition of the dust data onto the young-hot OB stars data to produce imagery as seen below:
 
 <img src="./img/superimposing.png">
