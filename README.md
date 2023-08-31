@@ -28,13 +28,9 @@ This file:
 
 * Shows 3D plots of Raw Data: (Examples below are with respect to 100 constructed intensity levels)
 
-Raw Hot OB star Data:
-
 <img src="./img/Rainbow_Young_hot_stars.png">
 
 https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/d4091abd-d46c-4179-a9ab-ee6cf46722c8
-
-Raw Dust Data:
 
 https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/5f35b888-6112-402a-8062-c3fd6d048707
 
