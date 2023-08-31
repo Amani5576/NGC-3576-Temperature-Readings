@@ -427,10 +427,8 @@ Follow one of the options per each of the following choices afterwards
 """)
 
     a = []
-    p = ["80:84", "80:90", "99"]
     for i, name in enumerate(names):
-        # a.append(input("""Which specific levels of %s? """ % name))
-        a.append(p[i])
+        a.append(input("""Which specific levels of %s? """ % name))
         if a[i] == "": #If user skipped it with an enter
             #making 'dummy' array in order for it to be ignored due to being smaller than 0
             a[i] = np.array([[1]*400, [1]*400, [1]*400])*-1

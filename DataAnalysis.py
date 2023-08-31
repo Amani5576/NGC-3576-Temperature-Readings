@@ -33,7 +33,10 @@ def get_z_axis_min(**kwargs):
         # c -> Number of occurences of those pixel values
         
         if min(u) == -1:
-            min_val = u[1] #Return the next smallest unique value
+            try:
+                min_val = u[1] #Return the next smallest unique value
+            except IndexError: #If only filled with -1's 
+                return 0 #Set minimum to 0
         else:
             min_val = u[0]
         
