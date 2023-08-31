@@ -32,11 +32,11 @@ Raw Hot OB star Data:
 
 <img src="./img/Rainbow_Young_hot_stars.png">
 
-<Insert 3d graphs of raw Young hot data here>
+https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/d4091abd-d46c-4179-a9ab-ee6cf46722c8
 
 Raw Dust Data:
 
-<Insert 3d graphs of raw dust data here>
+https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/5f35b888-6112-402a-8062-c3fd6d048707
 
 * Shows unfiltered matrices of fit file images
 
@@ -45,9 +45,9 @@ Raw Dust Data:
     - Mode(s) of pixel value(s)
     - Standard Deviation of pixel values.
 
-* Copy MESH of Raw Data into csv files
+* Copy MESH of Raw Data into CSV files
     
-* Allows user input in assesment of relative intenisty levels desired based on each specific ImageHDU
+* Allows user input in the assessment of relative intensity levels desired based on each specific ImageHDU
 
     - User decides on scaling Factor (see ```def get_scaling_Factor()```) . For Example:
 
@@ -58,18 +58,20 @@ Raw Dust Data:
     Hence, from Level 1 (highest intensity) to Level 2
     (Second highest intensity) is a difference of 10.
      
-    - User decides on the number of level intensities desirable (from highest intesity as the first level)
+    - User decides on the number of level intensities desirable (from highest intensity as the first level)
      For Example:
 
         Level 1 -> highest intensity level (Thus, type in the integer "1")
-        Level 2 -> 2nd highest intensity up until highest intenisty (Thus, type in the integer "2")
-        Level 3 -> 3rd highest intensity up until highest intenisty (Thus, type in the integer "3")
+        Level 2 -> 2nd highest intensity up until highest intensity (Thus, type in the integer "2")
+        Level 3 -> 3rd highest intensity up until highest intensity (Thus, type in the integer "3")
           |    ... nth highest intensity up until highest intensity 
 	Level N <= maxLevel -> Lowest intensity level   
             
-    **NOTE**: There automatically exists an initial **level 0**. This intenisty level is only for one value in particular which has the highest intensity value within the *entire matrix*.
+    **NOTE**: There automatically exists an initial **level 0**.
+
+  This intensity level is only for one value in particular which has the highest intensity value within the *entire matrix*.
              
-    *The above step essestially decreases processing time if not all intensity levels are desired. See nested for loops in ```def fundamental_filt(...)```)
+    *The above step essentially decreases processing time if not all intensity levels are desired. See nested for loops in ```def fundamental_filt(...)```)
 
 Gives Results.py filtered data of each pixel in the form:
 
@@ -81,9 +83,9 @@ The file can be run by running ```python ./DataAnalysis.py``` on any terminal em
 
 Used further in Results.py code if user would like to see the Nebula before filtering out the data.
 This file shows the initial ImageHDU matrix of each Fit file before any filtration occurs. 
-This is due to the fact that each numbered value in the matrices is a quanitity of the number of photons captured by the Telescope. Each element is a pixel containing a specified number of photons.
+This is due to the fact that each numbered value in the matrices is a quantity of the number of photons captured by the Telescope. Each element is a pixel containing a specified number of photons.
 
-Choice given for user is only to view one fit file out of the 3 image fit files.
+Choice given for the user is only to view one fit file out of the 3 image fit files.
 Hence, after running Results, one can still refer back to showSection to reveal the other two.
 
 * For Hydrogen Alpha matrix:
@@ -101,20 +103,20 @@ Hence, after running Results, one can still refer back to showSection to reveal 
 ## Results.py file (by Amani5576)
 This file:
 
-* Copies filtered data (that in form of tuples) to csv files.
+* Copies filtered data (in form of tuples) to CSV files.
 
 (See ```def csv_export_query()```)
 
-* Prints pixel data outputs of tuples with respect to user's previous choices 
+* Prints pixel data outputs of tuples with respect to the user's previous choices 
 
 See the following:
 ```def print_tuple_data(...)```
 ```def specify_levels(...)```
 ```def get_user_custom_levels()```
 
-Tuples are used in plotting of filtered data by functions such as ```plot_combined()```.
+Tuples are used in plotting filtered data by functions such as ```plot_combined()```.
 
-Below is an example for the following chosen user inputs:
+Below is an example of the following chosen user inputs:
 
 1. Scaling Factor = `40`
 2. Level Limit = `10` 
@@ -132,7 +134,7 @@ For the Sulphur II Filtered data:
 
 <img src="./img/TupleS2.jpeg">
 
-* Gives Nebulae images prior to the filtration that occured in DataAnalysis
+* Gives Nebulae images prior to the filtration that occurred in DataAnalysis
 
 * Gives options of data to display: (See ```def viewing()```)
     - Tuples
@@ -143,22 +145,22 @@ For the Sulphur II Filtered data:
     - 3D Graphing
     - Pixel Frame (Printing filtered images of each intensity level)
 
-The "Pixel Frame" choice allows the user to look at all different layers of a particular matrix. Each layer representing a matrix with the same size as the original image but with regards to only one intenisty of Photons. (Which can correlate to temperature readings)
-Below is an image of the different layers for the Hydrogen Alpha that have significantly noticable differences.
+The "Pixel Frame" choice allows the user to look at all different layers of a particular matrix. Each layer represents a matrix with the same size as the original image but with regards to only one intensity of Photons. (Which can correlate to temperature readings)
+Below is an image of the different layers of the Hydrogen Alpha that have significantly noticeable differences.
 
 <img src="./img/Layers.png">
 
-Below is a video of the combination of the HA images with regards to the splitting of 100 levels.
+Below is a video of the combination of the HA images with regard to the splitting of 100 levels.
 
 https://user-images.githubusercontent.com/110545729/191952049-509730ef-ef19-49ba-b836-2f67241194c0.mp4
 
-The 3D graphing allows more than just two layers to be compared unlike the video above. Based on user specifications, more than one level of one dataset can be viewed in combination with another dataset range of levels (e.g. HA lvl 1->5 with OIII lvl 78->90) in a 3D format. Graphs contain contours that feature the _kernel density estimation_ of the **average** density of the scatter plot. The contours are featured to reflect the average density of the scatter plots with regards to projections onto the x, y and z plane.
+The 3D graphing allows more than just two layers to be compared unlike the video above. Based on user specifications, more than one level of one dataset can be viewed in combination with another dataset range of levels (e.g. HA lvl 1->5 with OIII lvl 78->90) in a 3D format. Graphs contain contours that feature the _kernel density estimation_ of the **average** density of the scatter plot. The contours are featured to reflect the average density of the scatter plots with regard to projections onto the x, y, and z planes.
 
 **NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
 
 Below are outputs of the following where Scaling Factor = Level Limit = `100`:
 
-<ALL COMBINATION INPUT HERE>
+Uploading Combination.mp4…
 
 The file can be run by running ```python ./Results.py``` on any terminal emulator on a computer with Python 3 installed.
 Make sure to run ```pip install -r requirements.txt``` before you run!
