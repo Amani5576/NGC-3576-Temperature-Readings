@@ -159,6 +159,7 @@ The 3D graphing allows more than just two layers to be compared unlike the video
 Below are outputs of the following where Scaling Factor = Level Limit = `100`:
 
 https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/6d399cd6-1e75-4173-b81e-b38aa350bccb
+
 **NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
 
 The file can be run by running ```python ./Results.py``` on any terminal emulator on a computer with Python 3 installed.
