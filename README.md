@@ -134,7 +134,7 @@ For the Sulphur II Filtered data:
 
 * Gives Nebulae images prior to the filtration that occured in DataAnalysis
 
-*Gives options of data to display: (See ```def viewing()```)
+* Gives options of data to display: (See ```def viewing()```)
     - Tuples
     - Graphs and Pie Charts (Come in unison)
     - Tables
@@ -152,8 +152,10 @@ Below is a video of the combination of the HA images with regards to the splitti
 
 https://user-images.githubusercontent.com/110545729/191952049-509730ef-ef19-49ba-b836-2f67241194c0.mp4
 
-The 3D grahing allows more than just two layers to be compared unlike the video above. Based on user specifications, more than one level can be viewed in combination with other levels of a different IMAGEHDU type (e.g. HA lvl 1->5 with OIII lvl 78->90) in a 3D forma. Graphs contain contours that feature the kernel density estimation of the **average** density of the scatter plot. The contours are featured to reflect the average density of the scatter plots with regards to projections onto the x, y and z plane.
+The 3D graphing allows more than just two layers to be compared unlike the video above. Based on user specifications, more than one level of one dataset can be viewed in combination with another dataset range of levels (e.g. HA lvl 1->5 with OIII lvl 78->90) in a 3D format. Graphs contain contours that feature the _kernel density estimation_ of the **average** density of the scatter plot. The contours are featured to reflect the average density of the scatter plots with regards to projections onto the x, y and z plane.
+
 **NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
+
 Below are outputs of the following where Scaling Factor = Level Limit = `100`:
 
 <ALL COMBINATION INPUT HERE>
