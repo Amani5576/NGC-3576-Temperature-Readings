@@ -156,11 +156,10 @@ https://user-images.githubusercontent.com/110545729/191952049-509730ef-ef19-49ba
 
 The 3D graphing allows more than just two layers to be compared unlike the video above. Based on user specifications, more than one level of one dataset can be viewed in combination with another dataset range of levels (e.g. HA lvl 1->5 with OIII lvl 78->90) in a 3D format. Graphs contain contours that feature the _kernel density estimation_ of the **average** density of the scatter plot. The contours are featured to reflect the average density of the scatter plots with regard to projections onto the x, y, and z planes.
 
-**NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
-
 Below are outputs of the following where Scaling Factor = Level Limit = `100`:
 
 https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/6d399cd6-1e75-4173-b81e-b38aa350bccb
+**NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
 
 The file can be run by running ```python ./Results.py``` on any terminal emulator on a computer with Python 3 installed.
 Make sure to run ```pip install -r requirements.txt``` before you run!
