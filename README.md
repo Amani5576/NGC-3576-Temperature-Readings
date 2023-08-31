@@ -32,11 +32,6 @@ This file:
 
 https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/d4091abd-d46c-4179-a9ab-ee6cf46722c8
 
-<<<<<<< HEAD
-Raw Dust Data:
-
-=======
->>>>>>> f394110a6e844be66f57b6a033edba7824cb9a60
 https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/5f35b888-6112-402a-8062-c3fd6d048707
 
 * Shows unfiltered matrices of fit file images
@@ -156,21 +151,12 @@ Below is a video of the combination of the HA images with regard to the splittin
 https://user-images.githubusercontent.com/110545729/191952049-509730ef-ef19-49ba-b836-2f67241194c0.mp4
 
 The 3D graphing allows more than just two layers to be compared unlike the video above. Based on user specifications, more than one level of one dataset can be viewed in combination with another dataset range of levels (e.g. HA lvl 1->5 with OIII lvl 78->90) in a 3D format. Graphs contain contours that feature the _kernel density estimation_ of the **average** density of the scatter plot. The contours are featured to reflect the average density of the scatter plots with regard to projections onto the x, y, and z planes.
-<<<<<<< HEAD
-
-**NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
-
-Below are outputs of the following where Scaling Factor = Level Limit = `100`:
-
-Uploading Combination.mp4…
-=======
 
 Below are outputs of the following where Scaling Factor = Level Limit = `100`:
 
 https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/6d399cd6-1e75-4173-b81e-b38aa350bccb
 
 **NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
->>>>>>> f394110a6e844be66f57b6a033edba7824cb9a60
 
 The file can be run by running ```python ./Results.py``` on any terminal emulator on a computer with Python 3 installed.
 Make sure to run ```pip install -r requirements.txt``` before you run!
