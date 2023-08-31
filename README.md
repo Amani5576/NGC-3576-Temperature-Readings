@@ -1,4 +1,4 @@
-# Nebula Intensity
+# Nebula Temperature Readings
 
 Analysing areas of high and low intensity of Statue of Liberty Nebulae based on user specifications.
 
@@ -18,82 +18,64 @@ Hence accessing the `ImageHDU` of in row element `x` of `HDUs` array:
             
     HDUs[x][1]
 
-Running the file allows you to go through a series of questions to give the necessary information from the header of the Primary such as *Number of data Axes for ImageHDU*, *Approximate right ascension in hours*, *Name of Object*, etc. The file can be run by running python ./FitExtraction.py on any terminal emulator on a computer with Python 3 installed.
+Running the file allows you to go through a series of questions to give the necessary information from the header of the Primary such as *Number of data Axes for ImageHDU*, *Approximate right ascension in hours*, *Name of Object*, etc. The file can be run by running ```python ./FitExtraction.py``` on any terminal emulator on a computer with Python 3 installed.
 
 ## DataAnalysis.py file
 This file:
-* Closes the Fit files that were opened in the FitsExtraction.py
+* Closes Fit files that were opened in the FitsExtraction.py file.
 
-* Takes the Image HDU data of fit files and puts them in numpy arrays
+* Converts Image HDU data into numpy arrays
 
-* Computes Statistical data with regards to pixel numbered values; E.g:
+* Shows 3D plots of Raw Data: 
+
+Raw Hot OB star Data:
+
+<img src="./img/Rainbow_Young_hot_stars.png">
+
+<Insert 3d graphs of raw Young hot data here>
+
+Raw Dust Data:
+
+<Insert 3d graphs of raw dust data here>
+
+* Shows unfiltered matrices of fit file images
+
+* Computes Statistical data with regards to pixel-numbered values; (see ```def print_stat_dat(...)```) E.g:
     - Median pixel value
     - Mode(s) of pixel value(s)
     - Standard Deviation of pixel values.
+
+* Copy MESH of Raw Data into csv files
     
-* Allows user input in assesment of relative intenisty based on a specific ImageHDU
+* Allows user input in assesment of relative intenisty levels desired based on each specific ImageHDU
 
-    -User decides on scaling Factor. For Example:
+    - User decides on scaling Factor (see ```def get_scaling_Factor()```) . For Example:
 
-         You've chosen Scaling factor to be 6 (6 levels of varying intensity):
+    You've chosen Scaling factor to be 6 (6 levels of varying intensity):
          
-         If max = 80 and min = 20 then range is (80 - 20) = 60
-         By dividing the range by the Scale we get -> 60/6 = 10.
-         Hence, from Level 1 (highest intensity) to Level 2
-         (Second highest intensity) is a difference of 10.
+    If max = 80 and min = 20 then range is (80 - 20) = 60
+    By dividing the range by the Scale we get -> 60/6 = 10.
+    Hence, from Level 1 (highest intensity) to Level 2
+    (Second highest intensity) is a difference of 10.
      
-    -User decides on the number of level intensities desirable (from highest intesity as the first level)
-    For Example:
+    - User decides on the number of level intensities desirable (from highest intesity as the first level)
+     For Example:
 
         Level 1 -> highest intensity level (Thus, type in the integer "1")
         Level 2 -> 2nd highest intensity up until highest intenisty (Thus, type in the integer "2")
         Level 3 -> 3rd highest intensity up until highest intenisty (Thus, type in the integer "3")
-        Level 4 -> 4th highest.......etc   
+          |    ... nth highest intensity up until highest intensity 
+	Level N <= maxLevel -> Lowest intensity level   
             
     **NOTE**: There automatically exists an initial **level 0**. This intenisty level is only for one value in particular which has the highest intensity value within the *entire matrix*.
              
-    *The above essestially decreases processing time if not all intensity levels are desired.*
+    *The above step essestially decreases processing time if not all intensity levels are desired. See nested for loops in ```def fundamental_filt(...)```)
 
-* Allows user to choose three data ouputs: (which are limited by users chosen Scaling factor)
+Gives Results.py filtered data of each pixel in the form:
 
-    -Get pixels that belong to all levels of intensity up until the lowest intensity; then user inputs:
-    
-    `Yes` *(in order to see all levels)* 
-        
-    -Get pixels that belong to a particular level of intenisty; then user inputs:
-    
-    `x` *(`x` is an integer Level number)*
-        
-    -Let pixels that belong to particular levels of intenisty; then user inputs:
-    
-    `x,y,z,...` *(multiple integer level numbers of any random chosen level split by commas)*
-        
-The pixels will be given in terms of a tuple:
+	(<x-coord> , <y-coord> , <Intensity_level>)
 
-    (<x-coord> , <y-coord> , <Intensity_level>)
-
-See image below with an example of chosen user input:
-
-1. Scaling Factor = `40`
-2. Level Limit = `10` 
-3. Last user input = `yes` 
-
-    
-Tuples are used in plotting of filtered data in spectra.py @rofhima13.
-
-For the Hydrogen Alpha Filtered data:
-
-<img src="./img/TupleHA.jpeg">
-    
-For the Oxygen III Filtered data:
-
-<img src="./img/TupleO3.jpeg">
-    
-For the Sulphur II Filtered data:
-
-<img src="./img/TupleS2.jpeg">
-
-The file can be run by running python ./DataAnalysis.py on any terminal emulator on a computer with Python 3 installed.
+The file can be run by running ```python ./DataAnalysis.py``` on any terminal emulator on a computer with Python 3 installed.
 
 ## showSection.py file (by Amani5576)
 
@@ -117,27 +99,68 @@ Hence, after running Results, one can still refer back to showSection to reveal 
         show(fitFiles[2])  or   show("SII.fits")
 
 ## Results.py file (by Amani5576)
+This file:
 
-File guides the user to choose between various options of displaying the data:
--Tuples
--Graphs and Pie Charts (Come in unison)
--Tables
--Images
--Combinations of the above
--Special
+* Copies filtered data (that in form of tuples) to csv files.
 
-The "Special" choice allows the user to look at all different layers of a particular matrix. Each layer representing a matrix witht the same size as the original image but with regards to only one intenisty of Photons. (Which can correlate to temperature readings)
+(See ```def csv_export_query()```)
+
+* Prints pixel data outputs of tuples with respect to user's previous choices 
+
+See the following:
+```def print_tuple_data(...)```
+```def specify_levels(...)```
+```def get_user_custom_levels()```
+
+Tuples are used in plotting of filtered data by functions such as ```plot_combined()```.
+
+Below is an example for the following chosen user inputs:
+
+1. Scaling Factor = `40`
+2. Level Limit = `10` 
+3. Last user input = `yes` 
+
+For the Hydrogen Alpha Filtered data:
+
+<img src="./img/TupleHA.jpeg">
+    
+For the Oxygen III Filtered data:
+
+<img src="./img/TupleO3.jpeg">
+    
+For the Sulphur II Filtered data:
+
+<img src="./img/TupleS2.jpeg">
+
+* Gives Nebulae images prior to the filtration that occured in DataAnalysis
+
+*Gives options of data to display: (See ```def viewing()```)
+    - Tuples
+    - Graphs and Pie Charts (Come in unison)
+    - Tables
+    - Images
+    - Combinations of the above options (user input must be comma separated)
+    - 3D Graphing
+    - Pixel Frame (Printing filtered images of each intensity level)
+
+The "Pixel Frame" choice allows the user to look at all different layers of a particular matrix. Each layer representing a matrix with the same size as the original image but with regards to only one intenisty of Photons. (Which can correlate to temperature readings)
 Below is an image of the different layers for the Hydrogen Alpha that have significantly noticable differences.
 
 <img src="./img/Layers.png">
-
-The file can be run by running ```python ./Results.py``` on any terminal emulator on a computer with Python 3 installed.
-Make sure to run ```pip install -r requirements.txt``` before you run!
 
 Below is a video of the combination of the HA images with regards to the splitting of 100 levels.
 
 https://user-images.githubusercontent.com/110545729/191952049-509730ef-ef19-49ba-b836-2f67241194c0.mp4
 
-Manual code is needed for the superimposition of the dust data onto the stars data like so:
+The 3D grahing allows more than just two layers to be compared unlike the video above. Based on user specifications, more than one level can be viewed in combination with other levels of a different IMAGEHDU type (e.g. HA lvl 1->5 with OIII lvl 78->90) in a 3D forma. Graphs contain contours that feature the kernel density estimation of the **average** density of the scatter plot. The contours are featured to reflect the average density of the scatter plots with regards to projections onto the x, y and z plane.
+**NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
+Below are outputs of the following where Scaling Factor = Level Limit = `100`:
+
+<ALL COMBINATION INPUT HERE>
+
+The file can be run by running ```python ./Results.py``` on any terminal emulator on a computer with Python 3 installed.
+Make sure to run ```pip install -r requirements.txt``` before you run!
+
+Manual manipulation of code is needed for the superimposition of the dust data onto the stars data like so:
 
 <img src="./img/superimposing.png">

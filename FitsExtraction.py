@@ -30,17 +30,20 @@ head0 = fits.getheader(fitFiles[0]) # Could have used head1 or head2 but all inf
 tempArray = np.array(HDUs[0][1].data) #converting image HDU file into a numpy matrix
 pixelNum = np.shape(tempArray)[0] #Getting the row number of matrix
 
-def corrector():#corrects user in thier inputs:
+def corrector():#corrects user in thier inputs
     sys.exit("Please rerun the code and only type exactly as prescribed")
     
 printAllFits = input("""
-Would you like to skip all FitExtraction Printing?
+Would you like to see FitExtraction Printing?
 
 Y/N?
 
 """)
 
-if printAllFits == "N":
+agree = ["y", 'yes']
+disagree = ['n', 'no']
+
+if printAllFits.lower() in agree:
     print("_________________HDULists________________________")
     #Below returns a HDUList of the Fit data files.
     printHDU = input("""
@@ -52,10 +55,10 @@ if printAllFits == "N":
                      
         
     for x in range(len(fitFiles)):#looping through length of array
-        if printHDU == "Y":
+        if printHDU.lower() in agree:
             print(HDUs[x].info()) #Outputs a Summary of the info of the HDU List.
-            print("")
-        elif printHDU == "N":
+            print()
+        elif printHDU.lower() in disagree:
             pass
         else: 
             corrector()
@@ -67,14 +70,14 @@ if printAllFits == "N":
     printHead = input("""
     Print all header information ? Type -> 0
     Print important header information ? Type -> 1
-    Skip -> Just press enter
+    Skip -> Press enter
     """)
 
     if printHead == "0":
         head0
     elif printHead == "1":
         print("_______Impotant Header information from all PrimaryHDU's_______")
-        print("")
+        print()
         
         #Using getval() to get specific information from Primary and Image HDU
         print("Name of Object: ", fits.getval(fitFiles[x],"OBJECT"))
@@ -87,11 +90,13 @@ if printAllFits == "N":
         BITPIXData = fits.getval(fitFiles[x],"BITPIX") #Getting BitPixelData from Primary HDU
         if BITPIXData in numpyDatTyp: #If the bitPixel number is in the defined dictionary
             print("number of bits per data pixel: ", BITPIXData, " meaning of type ", numpyDatTyp[BITPIXData])
-        print("")
+        print()
     else: 
         pass
 
-    HDUDataTitles = ["__________________HA ImageHDU Data_________________________","__________________OIII ImageHDU Data_________________________", "__________________SII ImageHDU Data_________________________"]
+    HDUDataTitles = ["__________________HA ImageHDU Data_________________________",
+                     "__________________OIII ImageHDU Data_________________________", 
+                     "__________________SII ImageHDU Data_________________________"]
 
     imgHDU = input("""
     Print ImageHDU Data of the fit files?
@@ -100,18 +105,20 @@ if printAllFits == "N":
 
     """)
 
-    if imgHDU == "Y":
+    if imgHDU.lower() in agree:
         #Displaying the default data Matrix from PrimaryHDU's of HA, OIII and SII
         for x in range(len(fitFiles)): #Looping through length of array fitFiles
             print(HDUDataTitles[x]) #Print the relative title
-            print("")
+            print()
             print(HDUs[x][1].data) #From the image HDU, show the ImageHDU of current fitFile.
-            print("")
-    elif imgHDU == "N":
+            print()
+        
+    elif imgHDU.lower() in disagree:
         pass
     else:
         corrector()
-elif printAllFits == "Y":
+        
+elif printAllFits.lower() in disagree:
     pass
 else: 
     corrector()

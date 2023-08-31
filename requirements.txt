@@ -1,8 +1,13 @@
 astropy.io
 numpy
-matplotlib
-statistics
 sys
+statistics
+matplotlib
+sys
+csv
+itertools
+threading
+time
 scipy
 tabulate
 math

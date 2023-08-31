@@ -1,2 +1,13 @@
 __pycache__/
 env/
+color_lists/
+Graphing_Data/
+ALL_S_II_Images_lvl_1 to_100/
+ALL_O_III_Images_lvl_1_to_100/
+ALL_H_A_Images_lvl_1_to_100/
+HA_raw/
+OIII_raw/
+SII_raw/
+HA_csv/
+OIII_csv/
+SII_csv/
