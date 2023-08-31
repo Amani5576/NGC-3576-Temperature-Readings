@@ -26,7 +26,7 @@ This file:
 
 * Converts Image HDU data into numpy arrays
 
-* Shows 3D plots of Raw Data: 
+* Shows 3D plots of Raw Data: (Examples below are with respect to 100 constructed intensity levels)
 
 Raw Hot OB star Data:
 
