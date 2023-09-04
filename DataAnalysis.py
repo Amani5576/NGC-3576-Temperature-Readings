@@ -25,7 +25,8 @@ def animate():
 #Returns highest or lowest Z-value from z-axis dataset(s)
 def get_z_axis(typ, **kwargs):
     
-    #incase of typo's
+    #incase of typo's, ask user to input correct positional arguement
+    #Saves time by having to rerun less code
     if typ not in ["min", "max"]:
         typ = input("Please type either 'min' or 'max' for function 'get_z_axis': ")
         get_z_axis(typ, **kwargs)
