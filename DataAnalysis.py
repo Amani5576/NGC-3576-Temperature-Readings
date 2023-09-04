@@ -65,7 +65,7 @@ def get_z_axis(typ, **kwargs):
             val = min(p_s) 
         else:
             val = max(p_s)
-
+    #Give back the found minimum or maximum value from array-arguement (Z-dataset(s))
     return val
 
 #converts sizes of x, y and z ticks to custom size
