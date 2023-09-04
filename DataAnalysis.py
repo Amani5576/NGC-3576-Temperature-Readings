@@ -22,65 +22,50 @@ def animate():
             break
     sys.stdout.write('\rDone!     ')
 
-#Returns lowest Z-value(s)
-def get_z_axis_min(**kwargs):
+#Returns highest or lowest Z-value from z-axis dataset(s)
+def get_z_axis(typ, **kwargs):
     
-    def mini_get_z_axis_min(Z):
-        
+    #incase of typo's
+    if typ not in ["min", "max"]:
+        typ = input("Please type either 'min' or 'max' for function 'get_z_axis': ")
+        get_z_axis(typ, **kwargs)
+
+    def _get_z_axis(Z):
+
         arr = np.array(Z).flatten() #Flattening the matrix to array of size 1
         u, c = np.unique(arr, return_counts=True)
         # u -> Unique pixel values (already sorted in ascending order)
         # c -> Number of occurences of those pixel values
-        
-        if min(u) == -1:
-            try:
-                min_val = u[1] #Return the next smallest unique value
-            except IndexError: #If only filled with -1's 
-                return 0 #Set minimum to 0
-        else:
-            min_val = u[0]
-        
-        return min_val
-    
+
+        if typ == "min": #If getting minimum
+            if min(u) == -1:
+                try:
+                    value = u[1] #Return the next smallest unique value
+                except IndexError: #If only filled with -1's (thus index out of range)
+                    return 0 #Set minimum to 0
+            else: #just return the value
+                value = u[0] 
+            return value
+
+        elif typ == "max": #If getting maximum
+            return max(u)
+
     if 'Z' in kwargs:
-        minimum_z = mini_get_z_axis_min(kwargs['Z'])
-    
+        val = _get_z_axis(kwargs['Z'])
+
     else:#If multiple Z's are involved
         p_s = [] #Storing all the min values from matrices: Z_1, Z_2, Z_3
         for k,v in kwargs.items():
-            p = mini_get_z_axis_min(v)
+            p = _get_z_axis(v)
             p_s.append(p)
-        
-        #Get major maximum from all graphs
-        minimum_z = min(p_s) 
-        
-    return minimum_z
 
-#Returns highest Z-value(s)
-def get_z_axis_max(**kwargs):
-    
-    def mini_get_z_axis_max(Z):
-        
-        arr = np.array(Z).flatten() #Flattening the matrix to array of size 1
-        u, c = np.unique(arr, return_counts=True)
-        # u -> Unique pixel values (already sorted in ascending order)
-        # c -> Number of occurences of those pixel values
-                
-        return max(u)
-    
-    if 'Z' in kwargs:
-        maximum_z = mini_get_z_axis_max(kwargs['Z'])
-    
-    else:#If multiple Z's are involved
-        p_s = [] #Storing all the max values from matrices: Z_1, Z_2, Z_3
-        for k,v in kwargs.items():
-            p = mini_get_z_axis_max(v)
-            p_s.append(p)
-        
         #Get major maximum from all graphs
-        maximum_z = max(p_s) 
-        
-    return maximum_z
+        if typ  == "max":
+            val = min(p_s) 
+        else:
+            val = max(p_s)
+
+    return val
 
 #converts sizes of x, y and z ticks to custom size
 def tick_sizes(ax, size): 
@@ -671,7 +656,7 @@ def main():
             max_2d_plane = 420 #Maximum coordinate for the x and y axis 
                                 #(extra above 400 is for projection of 3d graph onto z plane)
             
-            z_upperlim = get_z_axis_max(Z)
+            z_upperlim = get_z_axis("max", Z)
             
             if typ == 0: #HA data (Input by user was 1)
                 E_ang = 30
@@ -736,7 +721,7 @@ def main():
 
                 color = 'gnuplot'
                 
-                z_upperlim = get_z_axis_max(Z)
+                z_upperlim = get_z_axis("max", Z)
                 
                 E_ang = 11
                 for H_ang in range(181,270,1):

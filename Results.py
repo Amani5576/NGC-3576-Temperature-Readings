@@ -6,7 +6,7 @@
 # Importing arrays (arrs -> images, levels -> user input, XYm_Lists -> filtered images)
 
 from FitsExtraction import agree, disagree, corrector
-from DataAnalysis import get_coords, get_z_axis_max, tick_sizes, plot_contour_3d_graph, plot_3d_Dust, get_z_axis_min #FUNCTIONS
+from DataAnalysis import get_coords, get_z_axis, tick_sizes, plot_contour_3d_graph, plot_3d_Dust #FUNCTIONS
 from DataAnalysis import XYm_Lists, XYm_types, Levels, names, arrs, stat_data, prop, sum_for_prop #VARIABLES
 import matplotlib.pyplot as plt # Import matplotlib library for plotting
 import matplotlib.colors as col # Import matplotlib library for color mapping
@@ -842,7 +842,7 @@ def main(arrs):
                 max_2d_plane = 420 #Maximum coordinate for the x and y axis 
                                     #(extra above 400 is for projection of 3d graph onto z plane)
                 
-                z_upperlim = get_z_axis_max(Z)
+                z_upperlim = get_z_axis("max", Z)
                 
                 if typ == 0: #HA data (Input by user was 1)
                 
@@ -915,8 +915,8 @@ def main(arrs):
                 elif typ == 2: #SII data (Input by user was 3)
 
                     color = 'gnuplot'
-                    z_upperlim = get_z_axis_max(Z)
-                    z_lowerlim = get_z_axis_min(Z)
+                    z_upperlim = get_z_axis("max", Z)
+                    z_lowerlim = get_z_axis("min", Z)
                     
                     E_ang = 11
                     for H_ang in range(181,270,1):
@@ -946,8 +946,8 @@ def main(arrs):
             max_2d_plane = 420 #Maximum coordinate for the x and y axis 
                                 #(extra above 400 is for projection of 3d graph onto z plane)
             
-            z_upperlim = get_z_axis_max(Z_1 = Z_1, Z_2 = Z_2, Z_3 = Z_3)
-            z_min = get_z_axis_min(Z_1 = Z_1, Z_2 = Z_2, Z_3 = Z_3)
+            z_upperlim = get_z_axis("max", Z_1 = Z_1, Z_2 = Z_2, Z_3 = Z_3)
+            z_min = get_z_axis("min", Z_1 = Z_1, Z_2 = Z_2, Z_3 = Z_3)
 
             E_ang = 30
             counter = 15
