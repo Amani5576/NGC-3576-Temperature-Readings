@@ -148,7 +148,7 @@ Below is an image of the different layers of the Hydrogen Alpha that have signif
 
 Below is a video of the combination of the HA images with regard to the splitting of 100 levels.
 
-https://user-images.githubusercontent.com/110545729/191952049-509730ef-ef19-49ba-b836-2f67241194c0.mp4
+https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/a3ccf4d7-3be7-4862-9d25-7fe68a4331f9
 
 The 3D graphing allows more than just two layers to be compared unlike the video above. Based on user specifications, more than one level of one dataset can be viewed in combination with another dataset range of levels (e.g. HA lvl 1->5 with OIII lvl 78->90) in a 3D format. Graphs contain contours that feature the _kernel density estimation_ of the **average** density of the scatter plot. The contours are featured to reflect the average density of the scatter plots with regard to projections onto the x, y, and z planes.
 
