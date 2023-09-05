@@ -317,8 +317,9 @@ choice? """)
                     plt.imshow(arr, cmap=plt.cm.gray)
                     plt.figure() # Show plot in its own windowclear
                     plt.show()
-    else:
-        corrector()
+    else:#Ask user again.
+        print("Please choose from the choices given")
+        print_filt_layers()
     
 def print_tuple_data(ViewChosen, names, Levels, XYm_Lists, filt, d, choice):
     if Levels !=1:
@@ -816,7 +817,7 @@ def main(arrs):
     #     print()
     #     print("Number of Dust pixels = ", notempty)
 
-    if ViewChosen.lower() == '3d':
+    elif ViewChosen.lower() == '3d':
         
         typ =  graphing_3d_query()
         
