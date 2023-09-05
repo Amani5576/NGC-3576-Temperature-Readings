@@ -12,7 +12,7 @@ Each fit File consists of a Primary and an Image HDU. These are two sub-lists wi
  
 `HDUs[1]` ---> `[PrimaryHDU, ImageHDU]` from Oxygen III Fit file
  
-`HDUs[2]` ---> `[PrimaryHDU, ImageHDU]` from Sulphur II Fit file
+`HDUs[2]` ---> `[PrimaryHDU, ImageHDU]` from Sulphur II Fit file 
      
 Hence accessing the `ImageHDU` of in row element `x` of `HDUs` array: 
             
