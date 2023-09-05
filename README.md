@@ -1,6 +1,6 @@
 # Nebula Temperature Readings
 
-Analysing areas of high and low intensity of Statue of Liberty Nebulae based on user specifications.
+Analyzing areas of high and low intensity of Statue of Liberty Nebulae based on user specifications.
 
 Data sourced from [this site](https://www.mattdieterich.com/nebuladata "www.mattdieterich.com")  where it was captured from ObsTech in Chile.
 
@@ -154,7 +154,7 @@ The 3D graphing allows more than just two layers to be compared unlike the video
 
 Below are outputs of the following where Scaling Factor = Level Limit = `100`:
 
-https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/6d399cd6-1e75-4173-b81e-b38aa350bccb
+Uploading Combination.mp4…
 
 **NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
 
