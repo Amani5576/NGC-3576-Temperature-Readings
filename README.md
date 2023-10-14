@@ -154,7 +154,7 @@ The 3D graphing allows more than just two layers to be compared unlike the video
 
 Below are outputs of the following where Scaling Factor = Level Limit = `100`:
 
-Uploading Combination.mp4…
+https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/f377f153-5e57-4b4d-a84a-eb93254ee848
 
 **NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
 
