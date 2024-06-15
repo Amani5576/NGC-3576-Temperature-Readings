@@ -2,7 +2,7 @@
 
 Analyzing areas of high and low intensity of Statue of Liberty Nebulae based on user specifications.
 
-Data sourced from [this site](https://www.mattdieterich.com/nebuladata "www.mattdieterich.com")  where it was captured from ObsTech in Chile. Ultimately producing [this](##3d_video) video amongst others.
+Data sourced from [this site](https://www.mattdieterich.com/nebuladata "www.mattdieterich.com")  where it was captured from ObsTech in Chile. Ultimately producing [this](##3dVideo) video amongst others.
 
 ## FitExtraction.py file
 This file opens and extracts the HDU data from the fit files and puts them into an array; HDUs.
