@@ -2,7 +2,7 @@
 
 Analyzing areas of high and low intensity of Statue of Liberty Nebulae based on user specifications.
 
-Data sourced from [this site](https://www.mattdieterich.com/nebuladata "www.mattdieterich.com")  where it was captured from ObsTech in Chile.
+Data sourced from [this site](https://www.mattdieterich.com/nebuladata "www.mattdieterich.com")  where it was captured from ObsTech in Chile. Ultimately producing [this](#3d_video) video amongst others.
 
 ## FitExtraction.py file
 This file opens and extracts the HDU data from the fit files and puts them into an array; HDUs.
@@ -145,7 +145,7 @@ The "Pixel Frame" choice allows the user to look at all different layers of a pa
 Below is an image of the different layers of the Hydrogen Alpha that have significantly noticeable differences.
 
 <img src="./img/Layers.png">
-
+##3d_video
 Below is a video of the combination of the HA images with regard to the splitting of 100 levels.
 
 https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/a3ccf4d7-3be7-4862-9d25-7fe68a4331f9
