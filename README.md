@@ -2,7 +2,7 @@
 
 Analyzing areas of high and low intensity of Statue of Liberty Nebulae based on user specifications.
 
-Data sourced from [this site](https://www.mattdieterich.com/nebuladata "www.mattdieterich.com")  where it was captured from ObsTech in Chile. Ultimately producing [this](##3dVideo) video amongst others.
+Data sourced from [this site](https://www.mattdieterich.com/nebuladata "www.mattdieterich.com")  where it was captured from ObsTech in Chile.
 
 ## FitExtraction.py file
 This file opens and extracts the HDU data from the fit files and puts them into an array; HDUs.
@@ -148,13 +148,15 @@ Below is an image of the different layers of the Hydrogen Alpha that have signif
 ##3d_video
 Below is a video of the combination of the HA images with regard to the splitting of 100 levels.
 
+<iframe width="560" height="315" src="Combination.mp4" frameborder="0" allowfullscreen></iframe>
+
 https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/a3ccf4d7-3be7-4862-9d25-7fe68a4331f9
 
 The 3D graphing allows more than just two layers to be compared unlike the video above. Based on user specifications, more than one level of one dataset can be viewed in combination with another dataset range of levels (e.g. HA lvl 1->5 with OIII lvl 78->90) in a 3D format. Graphs contain contours that feature the _kernel density estimation_ of the **average** density of the scatter plot. The contours are featured to reflect the average density of the scatter plots with regard to projections onto the x, y, and z planes.
 
-Below are outputs of the following where Scaling Factor = Level Limit = `100`:
+Below are [outputs] of the following where Scaling Factor = Level Limit = `100`:
 
-https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/f377f153-5e57-4b4d-a84a-eb93254ee848
+
 
 **NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
 
