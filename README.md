@@ -155,7 +155,11 @@ The 3D graphing allows more than just two layers to be compared unlike the video
 
 Below are [outputs] of the following where Scaling Factor = Level Limit = `100`:
 
-<iframe width="560" height="315" src="Combination.mp4" frameborder="0" allowfullscreen></iframe>
+<img class="tv" src="images/tv.png" alt="Tv">
+  <video width="320" height="240">
+    <source src="Combination.mp4" type="video/mp4" />
+  </video>
+</img> 
 
 **NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
 
