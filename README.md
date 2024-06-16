@@ -148,7 +148,6 @@ Below is an image of the different layers of the Hydrogen Alpha that have signif
 ##3d_video
 Below is a video of the combination of the HA images with regard to the splitting of 100 levels.
 
-<iframe width="560" height="315" src="Combination.mp4" frameborder="0" allowfullscreen></iframe>
 
 https://github.com/Amani5576/NGC-3576-Temperature-Readings/assets/110545729/a3ccf4d7-3be7-4862-9d25-7fe68a4331f9
 
@@ -156,7 +155,7 @@ The 3D graphing allows more than just two layers to be compared unlike the video
 
 Below are [outputs] of the following where Scaling Factor = Level Limit = `100`:
 
-
+<iframe width="560" height="315" src="Combination.mp4" frameborder="0" allowfullscreen></iframe>
 
 **NOTE**: Photpix = Photpix Level (made by user specifications of Scaling Factor).
 
